@@ -1,0 +1,291 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuilh3jvhtd48"]
+
+[ext_resource type="Script" uid="uid://cyvgxcgn8dted" path="res://source/client/ui/main_ui.gd" id="1_548k8"]
+[ext_resource type="Texture2D" uid="uid://bmacmia6t8s87" path="res://assets/background.png" id="1_h6h5v"]
+[ext_resource type="Texture2D" uid="uid://qew61j4eb55" path="res://icon.svg" id="1_xaoq5"]
+
+[node name="MainUI" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_548k8")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_h6h5v")
+
+[node name="MainMenuContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 30
+
+[node name="MenuContainer" type="VBoxContainer" parent="MainMenuContainer"]
+layout_mode = 2
+
+[node name="Separetor" type="Control" parent="MainMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MainMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(400, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "Welcome"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Description" type="Label" parent="MainMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Connet a account to start playing"
+autowrap_mode = 3
+
+[node name="Separetor2" type="Control" parent="MainMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Image" type="TextureRect" parent="MainMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("1_xaoq5")
+
+[node name="Separetor3" type="Control" parent="MainMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="MainMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="LoginButton" type="Button" parent="MainMenuContainer/MenuContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Login in"
+
+[node name="SignButton" type="Button" parent="MainMenuContainer/MenuContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Sign up"
+
+[node name="GuestButton" type="Button" parent="MainMenuContainer/MenuContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Connect as guest"
+
+[node name="LoginMenuContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 50
+
+[node name="MenuContainer" type="VBoxContainer" parent="LoginMenuContainer"]
+custom_minimum_size = Vector2(0, 750)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="LoginMenuContainer/MenuContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Login to start playing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator" type="Control" parent="LoginMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="UsernameLoginBox" type="LineEdit" parent="LoginMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+placeholder_text = "username"
+alignment = 1
+max_length = 10
+
+[node name="Separator2" type="Control" parent="LoginMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="PasswordLoginBox" type="LineEdit" parent="LoginMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+placeholder_text = "password"
+alignment = 1
+max_length = 10
+
+[node name="Separator3" type="Control" parent="LoginMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="LoginButton" type="Button" parent="LoginMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 42
+text = "Log in"
+
+[node name="SignupMenuContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 50
+
+[node name="MenuContainer" type="VBoxContainer" parent="SignupMenuContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Separetor" type="Control" parent="SignupMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Title" type="Label" parent="SignupMenuContainer/MenuContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Create a account"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separetor2" type="Control" parent="SignupMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="UsernameBox" type="LineEdit" parent="SignupMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+placeholder_text = "username"
+alignment = 1
+max_length = 10
+emoji_menu_enabled = false
+clear_button_enabled = true
+
+[node name="Separetor3" type="Control" parent="SignupMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(500, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="SignupMenuContainer/MenuContainer/Separetor3"]
+layout_mode = 1
+offset_right = 337.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 24
+text = "Need a minimum 5 character"
+
+[node name="PasswordInsertBox" type="LineEdit" parent="SignupMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+placeholder_text = "password"
+alignment = 1
+max_length = 10
+emoji_menu_enabled = false
+clear_button_enabled = true
+
+[node name="Separetor4" type="Control" parent="SignupMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(500, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="SignupMenuContainer/MenuContainer/Separetor4"]
+layout_mode = 1
+offset_right = 337.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "Need atleast one special character"
+
+[node name="PasswordRepeatBox" type="LineEdit" parent="SignupMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+placeholder_text = "repeat password"
+alignment = 1
+max_length = 10
+emoji_menu_enabled = false
+clear_button_enabled = true
+
+[node name="Separetor5" type="Control" parent="SignupMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="SignButton" type="Button" parent="SignupMenuContainer/MenuContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 42
+text = "Sign in"
+
+[node name="BackButton" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 42
+text = "Back"
