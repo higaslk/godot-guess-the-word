@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5fyke5soslaf"]
+[gd_scene load_steps=4 format=3 uid="uid://b5fyke5soslaf"]
 
 [ext_resource type="Script" uid="uid://pi751bt0l5go" path="res://source/client/main_client.gd" id="1_igkx8"]
+[ext_resource type="Script" uid="uid://du5llrqbv0k6k" path="res://source/client/network/network_manager.gd" id="2_cuqdx"]
 [ext_resource type="PackedScene" uid="uid://cuilh3jvhtd48" path="res://source/client/ui/main_ui.tscn" id="2_kj0be"]
 
-[node name="MainClient" type="Node"]
+[node name="Main" type="Node" node_paths=PackedStringArray("network_manager")]
 script = ExtResource("1_igkx8")
+network_manager = NodePath("NetworkManager")
 
-[node name="MainUI" parent="." instance=ExtResource("2_kj0be")]
+[node name="NetworkManager" type="Node" parent="."]
+script = ExtResource("2_cuqdx")
+metadata/_custom_type_script = "uid://du5llrqbv0k6k"
+
+[node name="MainUI" parent="." node_paths=PackedStringArray("client") instance=ExtResource("2_kj0be")]
+client = NodePath("..")

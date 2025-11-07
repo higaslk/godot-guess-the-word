@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuilh3jvhtd48"]
+[gd_scene load_steps=5 format=3 uid="uid://cuilh3jvhtd48"]
 
 [ext_resource type="Script" uid="uid://cyvgxcgn8dted" path="res://source/client/ui/main_ui.gd" id="1_548k8"]
 [ext_resource type="Texture2D" uid="uid://bmacmia6t8s87" path="res://assets/background.png" id="1_h6h5v"]
 [ext_resource type="Texture2D" uid="uid://qew61j4eb55" path="res://icon.svg" id="1_xaoq5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_548k8"]
+bg_color = Color(1, 0.497459, 0.428775, 0.435294)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.364706)
 
 [node name="MainUI" type="Control"]
 clip_contents = true
@@ -156,6 +164,7 @@ theme_override_font_sizes/font_size = 50
 placeholder_text = "password"
 alignment = 1
 max_length = 10
+secret = true
 
 [node name="Separator3" type="Control" parent="LoginMenuContainer/MenuContainer"]
 custom_minimum_size = Vector2(0, 100)
@@ -203,7 +212,7 @@ custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="UsernameBox" type="LineEdit" parent="SignupMenuContainer/MenuContainer"]
+[node name="UsernameInput" type="LineEdit" parent="SignupMenuContainer/MenuContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -228,7 +237,7 @@ offset_bottom = 34.0
 theme_override_font_sizes/font_size = 24
 text = "Need a minimum 5 character"
 
-[node name="PasswordInsertBox" type="LineEdit" parent="SignupMenuContainer/MenuContainer"]
+[node name="PasswordInput" type="LineEdit" parent="SignupMenuContainer/MenuContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -239,6 +248,7 @@ alignment = 1
 max_length = 10
 emoji_menu_enabled = false
 clear_button_enabled = true
+secret = true
 
 [node name="Separetor4" type="Control" parent="SignupMenuContainer/MenuContainer"]
 custom_minimum_size = Vector2(500, 75)
@@ -256,7 +266,7 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "Need atleast one special character"
 
-[node name="PasswordRepeatBox" type="LineEdit" parent="SignupMenuContainer/MenuContainer"]
+[node name="PasswordRepeatInput" type="LineEdit" parent="SignupMenuContainer/MenuContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -267,6 +277,7 @@ alignment = 1
 max_length = 10
 emoji_menu_enabled = false
 clear_button_enabled = true
+secret = true
 
 [node name="Separetor5" type="Control" parent="SignupMenuContainer/MenuContainer"]
 custom_minimum_size = Vector2(0, 75)
@@ -289,3 +300,31 @@ offset_right = 8.0
 offset_bottom = 8.0
 theme_override_font_sizes/font_size = 42
 text = "Back"
+
+[node name="Popup" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.849
+anchor_right = 0.5
+anchor_bottom = 0.849
+offset_left = -200.0
+offset_top = -119.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_548k8")
+
+[node name="WarnText" type="Label" parent="Popup"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.613404, 1.46799e-06, 4.81308e-08, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "Error message"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

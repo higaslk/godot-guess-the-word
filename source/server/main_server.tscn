@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkkiwr85ymav4"]
+[gd_scene load_steps=4 format=3 uid="uid://dkkiwr85ymav4"]
 
 [ext_resource type="Script" uid="uid://bb12yrlrabr32" path="res://source/server/main_server.gd" id="1_bi8rj"]
+[ext_resource type="Script" uid="uid://bqse514q7nndt" path="res://source/server/network/network_manager.gd" id="2_kuhu7"]
+[ext_resource type="Script" uid="uid://cmglstu5btnyp" path="res://source/server/data/data_manager.gd" id="3_lvl4q"]
 
-[node name="MainServer" type="Node"]
+[node name="Main" type="Node"]
 script = ExtResource("1_bi8rj")
+
+[node name="NetworkManager" type="Node" parent="." node_paths=PackedStringArray("data_manager")]
+script = ExtResource("2_kuhu7")
+data_manager = NodePath("DataManager")
+metadata/_custom_type_script = "uid://bqse514q7nndt"
+
+[node name="DataManager" type="Node" parent="NetworkManager"]
+script = ExtResource("3_lvl4q")
+metadata/_custom_type_script = "uid://cmglstu5btnyp"

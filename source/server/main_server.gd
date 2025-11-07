@@ -40,10 +40,8 @@ func _on_peer_connected(peer_id: int) -> void:
 
 func _on_peer_disconnected(peer_id: int) -> void:
     print('Peer %d has disconnected.' % peer_id)
+    connected_peers.erase(peer_id)
     player_disconnected.emit(peer_id)
-
-    if peer_id in connected_peers:
-        connected_peers.erase(peer_id)
 
 
 func disconnect_player(peer_id: int) -> void:

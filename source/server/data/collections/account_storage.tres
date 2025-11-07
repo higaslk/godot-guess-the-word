@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AccountStorage" load_steps=2 format=3 uid="uid://cyphvefri7wa5"]
+
+[ext_resource type="Script" uid="uid://bvpvv0tgeqvna" path="res://source/server/data/account_storage.gd" id="2_lvhml"]
+
+[resource]
+script = ExtResource("2_lvhml")
+accounts = Dictionary[StringName, Dictionary]({})
+metadata/_custom_type_script = "uid://bvpvv0tgeqvna"

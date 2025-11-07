@@ -4,8 +4,11 @@ extends Node
 
 signal connection_changed(is_connected: bool)
 
+
 const PORT: int = 8088
 const ADDRESS: String = '127.0.0.1'
+
+@export var network_manager: NetworkManagerClient
 
 var peer: ENetMultiplayerPeer
 
