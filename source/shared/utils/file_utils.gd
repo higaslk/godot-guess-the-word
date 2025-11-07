@@ -14,5 +14,5 @@ static func get_files_at(dir_path: String, extension: String) -> Array:
         if not file_name.ends_with(extension): continue
 
         files.append(file_name)
-    print(files)
+        
     return files
