@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://qew61j4eb55" path="res://icon.svg" id="1_xaoq5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_548k8"]
-bg_color = Color(1, 0.497459, 0.428775, 0.435294)
+bg_color = Color(0.0348022, 0.0620696, 0.0964424, 0.435294)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -307,22 +307,19 @@ custom_minimum_size = Vector2(400, 100)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.849
+anchor_top = 0.041
 anchor_right = 0.5
-anchor_bottom = 0.849
+anchor_bottom = 0.041
 offset_left = -200.0
-offset_top = -119.0
 offset_right = 200.0
+offset_bottom = 119.0
 grow_horizontal = 2
-grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_548k8")
 
 [node name="WarnText" type="Label" parent="Popup"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(0.613404, 1.46799e-06, 4.81308e-08, 1)
-theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 24
 text = "Error message"
 horizontal_alignment = 1

@@ -10,12 +10,6 @@ extends Control
 
 var _current_menu: MarginContainer
 
-var _password_min_length: int = 6
-var _password_max_length: int = 24
-
-var _username_min_length: int = 3
-var _username_max_length: int = 10
-
 
 func _ready() -> void:
 	_current_menu = menu_container
@@ -56,28 +50,24 @@ func _on_signup_signin_button_pressed() -> void:
 	var password: String = $SignupMenuContainer/MenuContainer/PasswordInput.text
 	var password_repeat: String = $SignupMenuContainer/MenuContainer/PasswordRepeatInput.text
 
-	if password != password_repeat:
-		popup_error("Password is not equal. Ensure both password box are the same.")
+	var result: Dictionary = AuthUtils.validate_credentials(username, password)
+
+	if not result["is_valid"]:
+		popup(result["error_msg"])
 		return
 
-	var auth_validate = AuthUtils.validate_username(username, _username_min_length, _username_max_length)
-	if not auth_validate["is_valid"]:
-		popup_error(auth_validate.error_msg)
-		return
-	
-	auth_validate = AuthUtils.validate_password(password, _password_min_length, _password_max_length)
-	if not auth_validate["is_valid"]:
-		popup_error(auth_validate.error_msg)
+	if password != password_repeat:
+		popup("Password is not equal. Ensure both password box are the same.")
 		return
 	
 	create_account(username, password)
-	var result: Dictionary = await client.network_manager.response_received
+	result = await client.network_manager.response_received
 	
 	if not result["is_valid"]:
-		popup_error(result["error_msg"])
+		popup(result["error_msg"])
 		return
 	
-	print("created account")
+	swap_menu(login_container)
 
 
 func create_account(username: String, password: String) -> void:
@@ -96,13 +86,14 @@ func connect_guest() -> void:
 	pass
 
 
-func popup_error(msg: String):
+func popup(msg: String):
 	var popup_panel: PanelContainer = $Popup
 	var popup_text: Label = $Popup/WarnText
 
 	toggle_visibility(popup_panel)
 	popup_text.text = msg
-	await get_tree().create_timer(4).timeout
+
+	await get_tree().create_timer(2).timeout
 	toggle_visibility(popup_panel)
 
 

@@ -1,13 +1,6 @@
 extends NetworkAction
 
 
-var _password_min_length: int = 6
-var _password_max_length: int = 24
-
-var _username_min_length: int = 3
-var _username_max_length: int = 10
-
-
 func action(_peer_id: int, netmanager: NetworkManagerServer, args: Dictionary) -> Dictionary:
 	if args.is_empty(): return {}
 
@@ -21,13 +14,9 @@ func action(_peer_id: int, netmanager: NetworkManagerServer, args: Dictionary) -
 
 
 func create_account(username: String, password: String, account_storage: AccountStorage) -> Dictionary:
-	var auth_validate = AuthUtils.validate_username(username, _username_min_length, _username_max_length)
-	if not auth_validate.is_valid:
-		return auth_validate
-	
-	auth_validate = AuthUtils.validate_password(password, _password_min_length, _password_max_length)
-	if not auth_validate.is_valid:
-		return auth_validate
+	var result: Dictionary = AuthUtils.validate_credentials(username, password)
+	if not result["is_valid"]:
+		return result
 	
 	if account_storage.accounts.has(username):
 		return {"is_valid": false, "error_msg": "A account with this username already exists."}
