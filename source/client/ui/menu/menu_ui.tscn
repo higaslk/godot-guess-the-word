@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cuilh3jvhtd48"]
 
-[ext_resource type="Script" uid="uid://cyvgxcgn8dted" path="res://source/client/ui/main_ui.gd" id="1_548k8"]
-[ext_resource type="Texture2D" uid="uid://bmacmia6t8s87" path="res://assets/background.png" id="1_h6h5v"]
-[ext_resource type="Texture2D" uid="uid://qew61j4eb55" path="res://icon.svg" id="1_xaoq5"]
+[ext_resource type="Script" uid="uid://cyvgxcgn8dted" path="res://source/client/ui/menu/menu_ui.gd" id="1_np1jh"]
+[ext_resource type="Texture2D" uid="uid://bmacmia6t8s87" path="res://assets/background.png" id="2_fvcbs"]
+[ext_resource type="Texture2D" uid="uid://qew61j4eb55" path="res://icon.svg" id="3_njt7m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_548k8"]
 bg_color = Color(0.0348022, 0.0620696, 0.0964424, 0.435294)
@@ -12,7 +12,7 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 0.364706)
 
-[node name="MainUI" type="Control"]
+[node name="MenuUi" type="Control"]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 15
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_548k8")
+script = ExtResource("1_np1jh")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -29,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_h6h5v")
+texture = ExtResource("2_fvcbs")
 
 [node name="MainMenuContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -79,7 +79,7 @@ custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-texture = ExtResource("1_xaoq5")
+texture = ExtResource("3_njt7m")
 
 [node name="Separetor3" type="Control" parent="MainMenuContainer/MenuContainer"]
 custom_minimum_size = Vector2(0, 25)

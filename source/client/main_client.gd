@@ -2,7 +2,7 @@ class_name MainClient
 extends Node
 
 
-signal connection_changed(is_connected: bool)
+signal login_changed(is_logged: bool)
 
 
 const PORT: int = 8088
@@ -11,11 +11,13 @@ const ADDRESS: String = '127.0.0.1'
 @export var network_manager: NetworkManagerClient
 
 var peer: ENetMultiplayerPeer
+var client_data: Dictionary
+var users_data: Dictionary[String, Dictionary]
 
-var is_connected_to_server: bool = false:
+var logged_to_server: bool = false:
     set(value):
-        is_connected_to_server = value
-        connection_changed.emit(value)
+        logged_to_server = value
+        login_changed.emit(value)
 
 
 func _ready() -> void:
@@ -28,7 +30,6 @@ func _ready() -> void:
 
 func _on_server_connection() -> void:
     print('Connected to server as: %d' % multiplayer.get_unique_id())
-    is_connected_to_server = true
 
 
 func _on_server_connection_failed() -> void:
@@ -55,4 +56,4 @@ func connect_to_server() -> void:
 func close_connection() -> void:
     multiplayer.multiplayer_peer = null
     peer.close()
-    is_connected_to_server = false
+    logged_to_server = false
