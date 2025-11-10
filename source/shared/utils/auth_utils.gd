@@ -56,6 +56,15 @@ static func validate_credentials(username: String, password: String) -> Dictiona
 	return {"is_valid": true, "error_msg": ""}
 
 
+static func get_unique_string() -> String:
+	var digits: String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	var result: String = ""
+
+	for i in range(10):
+		result += digits[randi() % digits.length()]
+	return result
+
+
 static func _has_special_char(text: String) -> bool:
 	var regex = RegEx.new()
 	regex.compile("[^a-zA-Z\\s]")
