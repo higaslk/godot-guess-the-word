@@ -29,14 +29,18 @@ func _on_menu_login_button_pressed() -> void:
 	swap_menu(login_container)
 	toggle_visibility(back_button)
 
-	$LoginMenuContainer/MenuContainer/LoginButton.pressed.connect(_on_login_login_button_pressed)
+	var login_button: Button = $LoginMenuContainer/MenuContainer/LoginButton
+	if not login_button.has_connections("pressed"):
+		login_button.pressed.connect(_on_login_login_button_pressed)
 
 
 func _on_menu_sign_button_pressed() -> void:
 	swap_menu(signup_container)
 	toggle_visibility(back_button)
-
-	$SignupMenuContainer/MenuContainer/SignButton.pressed.connect(_on_signup_signin_button_pressed)
+	
+	var sign_button: Button = $SignupMenuContainer/MenuContainer/SignButton
+	if not sign_button.has_connections("pressed"):
+		sign_button.pressed.connect(_on_signup_signin_button_pressed)
 
 
 func _on_menu_guest_button_pressed() -> void:
