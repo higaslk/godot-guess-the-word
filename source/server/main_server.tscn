@@ -4,14 +4,15 @@
 [ext_resource type="Script" uid="uid://bqse514q7nndt" path="res://source/server/network/network_manager.gd" id="2_kuhu7"]
 [ext_resource type="Script" uid="uid://cmglstu5btnyp" path="res://source/server/data/data_manager.gd" id="3_lvl4q"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" node_paths=PackedStringArray("network_manager")]
 script = ExtResource("1_bi8rj")
+network_manager = NodePath("NetworkManager")
+
+[node name="DataManager" type="Node" parent="."]
+script = ExtResource("3_lvl4q")
+metadata/_custom_type_script = "uid://cmglstu5btnyp"
 
 [node name="NetworkManager" type="Node" parent="." node_paths=PackedStringArray("data_manager")]
 script = ExtResource("2_kuhu7")
-data_manager = NodePath("DataManager")
+data_manager = NodePath("../DataManager")
 metadata/_custom_type_script = "uid://bqse514q7nndt"
-
-[node name="DataManager" type="Node" parent="NetworkManager"]
-script = ExtResource("3_lvl4q")
-metadata/_custom_type_script = "uid://cmglstu5btnyp"

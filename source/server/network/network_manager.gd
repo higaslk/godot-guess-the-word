@@ -2,15 +2,46 @@ class_name NetworkManagerServer
 extends Node
 
 
+signal player_connected(peer_id: int)
+signal player_disconnected(peer_id: int)
+
+
+const PORT: int = 8088
+const MAX_PLAYERS: int = 100
 const ACTIONS_PATH: String = "res://source/server/network/actions/"
 
 @export var data_manager: DataManager
 
+var connected_peers: Array[int]
 var network_actions: Dictionary[String, NetworkAction]
 
 
-func _ready() -> void:
+func start_server() -> void:
+	var peer: ENetMultiplayerPeer = ENetMultiplayerPeer.new()
+	var err: Error = peer.create_server(PORT, MAX_PLAYERS)
+	
+	if err != OK:
+		printerr('Failed to create server. Err: %d' % error_string(err))
+		return
+	
+	multiplayer.peer_connected.connect(_on_peer_connected)
+	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
+
 	load_actions()
+
+	multiplayer.multiplayer_peer = peer
+
+
+func _on_peer_connected(peer_id: int) -> void:
+	print('Peer %d has connected.' % peer_id)
+	connected_peers.append(peer_id)
+	player_connected.emit(peer_id)
+
+
+func _on_peer_disconnected(peer_id: int) -> void:
+	print('Peer %d has disconnected.' % peer_id)
+	connected_peers.erase(peer_id)
+	player_disconnected.emit(peer_id)
 
 
 func load_actions() -> void:
@@ -36,3 +67,8 @@ func do_action(action_name: StringName, args: Dictionary) -> void:
 @rpc("authority", "call_remote", "reliable")
 func _action_response(_args: Dictionary) -> void:
 	pass
+
+
+func disconnect_player(peer_id: int) -> void:
+	if not peer_id in connected_peers: return
+	multiplayer.multiplayer_peer.disconnect_peer(peer_id)

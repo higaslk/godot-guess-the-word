@@ -108,7 +108,7 @@ func login(username: String, password: String) -> void:
 		return
 	
 	client.client_data[username] = result["data"]
-	client.logged_to_server = true
+	client.network_manager.logged_to_server = true
 
 
 func connect_guest() -> void:
@@ -122,7 +122,7 @@ func connect_guest() -> void:
 	var account_data = result["account_data"]
 
 	client.client_data[account_data["username"]] = account_data["data"]
-	client.logged_to_server = true
+	client.network_manager.logged_to_server = true
 
 
 func popup(msg: String):
