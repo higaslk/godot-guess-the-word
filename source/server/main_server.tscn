@@ -8,11 +8,11 @@
 script = ExtResource("1_bi8rj")
 network_manager = NodePath("NetworkManager")
 
-[node name="DataManager" type="Node" parent="."]
-script = ExtResource("3_lvl4q")
-metadata/_custom_type_script = "uid://cmglstu5btnyp"
-
 [node name="NetworkManager" type="Node" parent="." node_paths=PackedStringArray("data_manager")]
 script = ExtResource("2_kuhu7")
 data_manager = NodePath("../DataManager")
 metadata/_custom_type_script = "uid://bqse514q7nndt"
+
+[node name="DataManager" type="Node" parent="."]
+script = ExtResource("3_lvl4q")
+metadata/_custom_type_script = "uid://cmglstu5btnyp"

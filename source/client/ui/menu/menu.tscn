@@ -1,0 +1,237 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxnwxr3t0gj05"]
+
+[ext_resource type="Texture2D" uid="uid://qew61j4eb55" path="res://icon.svg" id="1_7hpim"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m7w8"]
+bg_color = Color(0.190221, 0.190221, 0.19022, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.509804)
+shadow_size = 5
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hpim"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cq472"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.298039)
+shadow_size = 5
+shadow_offset = Vector2(0, 5)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UserinfoContainer" type="MarginContainer" parent="MainContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MainContainer/UserinfoContainer"]
+layout_mode = 2
+
+[node name="UserIcon" type="TextureRect" parent="MainContainer/UserinfoContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.0
+offset_top = -64.0
+offset_right = -178.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_7hpim")
+
+[node name="Username" type="Label" parent="MainContainer/UserinfoContainer/Control"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -47.0
+offset_right = 325.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Guest-Akndjwndw*05"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Content" type="Control" parent="MainContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainContainer/Content"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 759)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_right = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/Content/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Separator" type="Control" parent="MainContainer/Content/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="DailyContainer" type="Control" parent="MainContainer/Content/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="MainContainer/Content/ScrollContainer/VBoxContainer/DailyContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3m7w8")
+
+[node name="Label" type="Label" parent="MainContainer/Content/ScrollContainer/VBoxContainer/DailyContainer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 42
+text = "Daily word. Play new word everyday!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DailyPlayButton" type="Button" parent="MainContainer/Content/ScrollContainer/VBoxContainer/DailyContainer"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = -97.0
+offset_right = 294.0
+offset_bottom = -22.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_7hpim")
+text = "Play"
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/Content/ScrollContainer/VBoxContainer/DailyContainer"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -122.0
+offset_top = -122.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("1_7hpim")
+
+[node name="RankingContainer" type="Control" parent="MainContainer/Content/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MainContainer/Content/ScrollContainer/VBoxContainer/RankingContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_cq472")
+
+[node name="Label" type="Label" parent="MainContainer/Content/ScrollContainer/VBoxContainer/RankingContainer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -74.5
+offset_right = 236.0
+offset_bottom = 74.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "Word Ranking"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/Content/ScrollContainer/VBoxContainer/RankingContainer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -67.0
+offset_right = -58.0
+offset_bottom = 69.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_7hpim")
+
+[node name="RankedButton" type="Button" parent="MainContainer/Content/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Comming Soon"
+
+[node name="PvpButton" type="Button" parent="MainContainer/Content/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Comming Soon"
+
+[node name="CoopButton" type="Button" parent="MainContainer/Content/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Comming Soon"

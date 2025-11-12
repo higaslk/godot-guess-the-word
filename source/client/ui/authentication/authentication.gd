@@ -6,8 +6,7 @@ extends Control
 @onready var signup_container: MarginContainer = $SignupMenuContainer
 @onready var back_button: Button = $BackButton
 
-@export var client: MainClient
-
+var client: MainClient
 var _current_menu: MarginContainer
 
 
